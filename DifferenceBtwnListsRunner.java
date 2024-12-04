@@ -16,7 +16,11 @@ public class DifferenceBtwnListsRunner {
             String data = myReader.nextLine();
             String[] dataByLetters = data.split("");
             for (int c = 0; c <= 4; c++){
-//                listOne.add(Integer.parseInt(dataByLetters.get))
+                listOne.add(Integer.parseInt(dataByLetters[c]));
+            }
+            for (int q = 0; q <=12; q++) {
+                //8-12
+                listTwo.add(Integer.parseInt(dataByLetters[q]));
             }
         }
     }
