@@ -15,14 +15,25 @@ public class DifferenceBtwnListsRunner {
         for (int b = 1; b <= 10000; b++){
             String data = myReader.nextLine();
             String[] dataByLetters = data.split("");
+            String toBeTotalNumOne = "";
+            StringBuilder toBeTotalNumTwo = new StringBuilder();
             for (int c = 0; c <= 4; c++){
-                listOne.add(Integer.parseInt(dataByLetters[c]));
+                toBeTotalNumOne += dataByLetters[c];
+                listOne.add(Integer.parseInt(toBeTotalNumOne));
             }
-            for (int q = 0; q <=12; q++) {
+            for (int q = 8; q <=12; q++) {
                 //8-12
-                listTwo.add(Integer.parseInt(dataByLetters[q]));
+                toBeTotalNumTwo.append(dataByLetters[q]);
+                listTwo.add(Integer.parseInt(String.valueOf(toBeTotalNumTwo)));
             }
         }
+        System.out.println("List one: ");
+        System.out.println(listOne);
+
+        System.out.println();
+
+        System.out.println("List two: ");
+        System.out.println(listTwo);
     }
 
 }
