@@ -11,7 +11,7 @@ public class DifferenceBtwnListsRunner {
         List<Integer> listTwo = new ArrayList<>();
         List<Integer> newListOne = new ArrayList<>();
         List<Integer> newListTwo = new ArrayList<>();
-        
+
         int listOneOrTwo = 0;
         File differenceBetweenListsNumbers = new File("C:\\Users\\BT_2S14_05\\IdeaProjects\\AdventOfCode_AmeliaFrench\\src\\DifferenceBtwnListsNumbers");
         Scanner myReader = new Scanner(differenceBetweenListsNumbers);
@@ -21,7 +21,7 @@ public class DifferenceBtwnListsRunner {
             String data = myReader.nextLine();
             String[] dataByLetters = data.split("");
             String toBeTotalNumOne = "";
-            StringBuilder toBeTotalNumTwo = new StringBuilder();
+            String toBeTotalNumTwo = "";
             for (int c = 0; c <= 4; c++){
                 toBeTotalNumOne += dataByLetters[c];
                 if (toBeTotalNumOne.length() == 5) {
@@ -30,12 +30,14 @@ public class DifferenceBtwnListsRunner {
             }
             for (int q = 8; q <=12; q++) {
                 //8-12
-                toBeTotalNumTwo.append(dataByLetters[q]);
+                toBeTotalNumTwo += dataByLetters[q];
                 if (toBeTotalNumTwo.length() == 5) {
-                    listTwo.add(Integer.parseInt(String.valueOf(toBeTotalNumTwo)));
+                    listTwo.add(Integer.parseInt(toBeTotalNumTwo));
                 }
             }
         }
+
+
         DifferenceBtwnLists difference = new DifferenceBtwnLists(listOne, listTwo);
 
         newListOne = difference.rearrangeListOne();
@@ -48,6 +50,7 @@ public class DifferenceBtwnListsRunner {
 
         System.out.println("List two: ");
         System.out.println(newListTwo);
+
         System.out.println();
         int finalDifference = difference.differences();
         System.out.println(finalDifference);

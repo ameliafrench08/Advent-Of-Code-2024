@@ -34,7 +34,7 @@ public class DifferenceBtwnLists {
 
     public List<Integer> rearrangeListTwo(){
             while (!listTwo.isEmpty() && listTwo.size() != 1){
-                newListTwo.add(Collections.min(listOne));
+                newListTwo.add(Collections.min(listTwo));
                 listTwo.remove(listTwo.indexOf(Collections.min(listTwo)));
                 System.out.println(newListTwo);
             }
