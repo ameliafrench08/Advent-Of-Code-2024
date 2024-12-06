@@ -14,8 +14,17 @@ public class SafetyReports {
         for (int i = 0; i < report.size(); i++){
             if (report.size() - i >= 2 && (report.get(i) < report.get(i +1))){
                 numTimesIncreasing++;
+
             }
         }
+        System.out.println("Report: ");
+        System.out.println(report);
+        System.out.println("Num times increasing: ");
+        System.out.println(numTimesIncreasing);
+        System.out.println("Report size");
+        System.out.println(report.size());
+        System.out.println(numTimesIncreasing + 1 == report.size());
+        System.out.println();
         return numTimesIncreasing + 1 == report.size();
     }
 
