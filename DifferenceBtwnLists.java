@@ -1,9 +1,12 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class DifferenceBtwnLists {
     List<Integer> listOne = new ArrayList<>();
     List<Integer> listTwo = new ArrayList<>();
+    List<Integer> newListTwo = new ArrayList<>();
+    List<Integer> newListOne = new ArrayList<>();
 
     public DifferenceBtwnLists(List<Integer> listOne, List<Integer> listTwo){
         this.listOne = listOne;
@@ -19,36 +22,31 @@ public class DifferenceBtwnLists {
     }
 
     public List<Integer> rearrangeListOne(){
-
-        for (int i = 1; i <= factorial(listOne.size()); i++){
-            for (int l = 0; l < listOne.size(); l++){
-                if (listOne.get(l) > listOne.get(l+1)) {
-                    int toCopy = listOne.get(l + 1);
-                    listOne.remove(l + 1);
-                    listOne.add(l, toCopy);
-                }
+            while (!listOne.isEmpty() && listOne.size() != 1){
+                newListOne.add(Collections.min(listOne));
+                listOne.remove(listOne.indexOf(Collections.min(listOne)));
+                System.out.println(newListOne);
             }
-        }
-        return listOne;
+            newListOne.add(listOne.getFirst());
+
+        return newListOne;
     }
 
     public List<Integer> rearrangeListTwo(){
-        for (int i = 1; i <= factorial(listTwo.size()); i++){
-            for (int l = 0; l < listTwo.size(); l++){
-                if (listTwo.get(l) > listTwo.get(l+1)) {
-                    int toCopy = listTwo.get(l + 1);
-                    listTwo.remove(l + 1);
-                    listTwo.add(l, toCopy);
-                }
+            while (!listTwo.isEmpty() && listTwo.size() != 1){
+                newListTwo.add(Collections.min(listOne));
+                listTwo.remove(listTwo.indexOf(Collections.min(listTwo)));
+                System.out.println(newListTwo);
             }
-        }
-        return listTwo;
+            newListTwo.add(listTwo.getFirst());
+
+        return newListTwo;
     }
 
     public int differences(){
         int sum = 0;
-        for (int m = 0; m < listOne.size(); m++){
-            sum += Math.abs(listOne.get(m) - listTwo.get(m));
+        for (int m = 0; m < newListOne.size(); m++){
+            sum += (Math.abs(newListOne.get(m) - newListTwo.get(m)));
         }
         return sum;
     }

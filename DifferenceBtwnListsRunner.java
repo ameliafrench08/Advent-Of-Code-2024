@@ -6,34 +6,51 @@ import java.util.Scanner;
 
 public class DifferenceBtwnListsRunner {
     public static void main(String[] args) throws FileNotFoundException {
-        File differenceBetweenListsNumbers = new File("DifferenceBtwnListsNumbers");
-        Scanner myReader = new Scanner(differenceBetweenListsNumbers);
+
         List<Integer> listOne = new ArrayList<>();
         List<Integer> listTwo = new ArrayList<>();
+        List<Integer> newListOne = new ArrayList<>();
+        List<Integer> newListTwo = new ArrayList<>();
+        
         int listOneOrTwo = 0;
+        File differenceBetweenListsNumbers = new File("C:\\Users\\BT_2S14_05\\IdeaProjects\\AdventOfCode_AmeliaFrench\\src\\DifferenceBtwnListsNumbers");
+        Scanner myReader = new Scanner(differenceBetweenListsNumbers);
 
-        for (int b = 1; b <= 10000; b++){
+        while (myReader.hasNext()){
+
             String data = myReader.nextLine();
             String[] dataByLetters = data.split("");
             String toBeTotalNumOne = "";
             StringBuilder toBeTotalNumTwo = new StringBuilder();
             for (int c = 0; c <= 4; c++){
                 toBeTotalNumOne += dataByLetters[c];
-                listOne.add(Integer.parseInt(toBeTotalNumOne));
+                if (toBeTotalNumOne.length() == 5) {
+                    listOne.add(Integer.parseInt(toBeTotalNumOne));
+                }
             }
             for (int q = 8; q <=12; q++) {
                 //8-12
                 toBeTotalNumTwo.append(dataByLetters[q]);
-                listTwo.add(Integer.parseInt(String.valueOf(toBeTotalNumTwo)));
+                if (toBeTotalNumTwo.length() == 5) {
+                    listTwo.add(Integer.parseInt(String.valueOf(toBeTotalNumTwo)));
+                }
             }
         }
-        System.out.println("List one: ");
-        System.out.println(listOne);
+        DifferenceBtwnLists difference = new DifferenceBtwnLists(listOne, listTwo);
 
-        System.out.println();
+        newListOne = difference.rearrangeListOne();
+
+        newListTwo = difference.rearrangeListTwo();
+
+        System.out.println("List one: ");
+        System.out.println(newListOne);
+
 
         System.out.println("List two: ");
-        System.out.println(listTwo);
+        System.out.println(newListTwo);
+        System.out.println();
+        int finalDifference = difference.differences();
+        System.out.println(finalDifference);
     }
 
 }
