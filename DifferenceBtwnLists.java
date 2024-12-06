@@ -25,7 +25,6 @@ public class DifferenceBtwnLists {
             while (!listOne.isEmpty() && listOne.size() != 1){
                 newListOne.add(Collections.min(listOne));
                 listOne.remove(listOne.indexOf(Collections.min(listOne)));
-                System.out.println(newListOne);
             }
             newListOne.add(listOne.getFirst());
 
@@ -36,7 +35,6 @@ public class DifferenceBtwnLists {
             while (!listTwo.isEmpty() && listTwo.size() != 1){
                 newListTwo.add(Collections.min(listTwo));
                 listTwo.remove(listTwo.indexOf(Collections.min(listTwo)));
-                System.out.println(newListTwo);
             }
             newListTwo.add(listTwo.getFirst());
 
